@@ -1,0 +1,169 @@
+/* Variables globales */
+:root {
+    --primary-color: #7FD4E4;
+    --secondary-color: #5BC0DE;
+    --text-color: #333;
+    --background-color: #f5f6fa;
+    --spacing: 20px;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+/* Navigation */
+header {
+    background-color: white;
+    padding: var(--spacing);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Section Hero */
+.hero {
+    text-align: center;
+    padding: 100px var(--spacing);
+    background: white;
+    color: var(--text-color);
+    margin-bottom: 50px;
+    border-radius: 0 0 20px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    margin-top: 20px;
+    transition: transform 0.3s;
+    font-weight: bold;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    background-color: var(--secondary-color);
+}
+
+/* Sections de contenu */
+.features, .content, .events-grid, .works-grid {
+    padding: var(--spacing);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-grid, .events-grid, .works-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Cartes */
+.event-card, .work-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.event-card:hover, .work-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-card h3, .work-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+/* Section contenu */
+.content {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.content h2 {
+    color: var(--primary-color);
+    margin: 20px 0 10px;
+}
+
+/* Mascotte */
+.mascot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+    z-index: 1000;
+}
+
+/* Footer */
+footer {
+    background-color: white;
+    color: var(--primary-color);
+    text-align: center;
+    padding: var(--spacing);
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero {
+        padding: 50px var(--spacing);
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .events-grid, .works-grid {
+        grid-template-columns: 1fr;
+    }
+} 
