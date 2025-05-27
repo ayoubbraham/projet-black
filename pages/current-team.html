@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe 2024-2025 - E-novation PSC</title>
+    <link rel="stylesheet" href="../code css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #7FD4E4;
+            --secondary-color: #5BC0DE;
+        }
+
+        .hero-section {
+            height: 80vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .supervisor-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .supervisor-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .supervisor-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .work-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .work-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .work-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            padding: 30px;
+            color: white;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-card i {
+            color: white !important;
+        }
+
+        .work-card h3 {
+            color: white;
+        }
+
+        .media-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .media-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .media-item {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .media-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .media-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .media-video {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .media-text {
+            padding: 40px;
+            color: white;
+        }
+
+        .media-text h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .media-text p {
+            line-height: 1.8;
+            color: white;
+        }
+
+        .work-videos-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .work-videos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .work-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            justify-items: center;
+            align-items: start;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            max-height: 300px; /* Limite la hauteur maximale */
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            max-width: 500px; /* Limite la largeur maximale */
+            margin: 0 auto; /* Centre la carte */
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-content {
+            padding: 20px;
+            color: white;
+        }
+
+        .video-content h3 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .video-content p {
+            color: white;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .section-title h2 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: white;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            color: white;
+            font-size: 2em;
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-info h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: 1.1em;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Ajout des styles pour le logo */
+        .logo-container {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+            margin-right: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../logo/logo.png" alt="E-novation PSC Logo" class="header-logo">
+            </div>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="events.html">Événements</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="virtual-tour.html">Visite Virtuelle</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Notre Équipe 2024-2025</h1>
+                <p class="hero-subtitle">Innovation, Passion et Excellence</p>
+                <p>Ensemble, nous repoussons les limites de l'innovation pour créer un impact durable</p>
+            </div>
+        </section>
+
+        <section class="supervisor-section">
+            <div class="supervisor-container">
+                <img src="../video de travail equipe 2025/IMAGEENCADRE.jpg" alt="Notre Encadreur" class="supervisor-image">
+                <h2>Notre Encadreur</h2>
+                <h3>Madame khaoula Chouyakh</h3>
+                <p style="margin: 20px 0; line-height: 1.8;">Nous tenons à exprimer notre profonde gratitude envers notre encadreur pour son soutien constant, ses précieux conseils et son engagement dans la réussite de notre projet. Sa vision et son expertise nous guident vers l'excellence.</p>
+            </div>
+        </section>
+
+        <section class="work-videos-section">
+            <div class="work-videos-container">
+                <div class="section-title">
+                    <h2>Notre Projet en Action</h2>
+                    <p>Découvrez l'évolution de notre projet à travers nos vidéos</p>
+                </div>
+
+                <h3 class="category-title">Phase de Planification</h3>
+                <div class="work-videos-grid">
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY 1.mp4 " type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 1</h3>
+                            <p>La veille du lancement de notre projet a été marquée par une série d’étapes déterminantes. Tout commence par la signature officielle des engagements, symbolisant l’adhésion de chaque partie au projet. S’ensuivent des réunions intenses avec notre encadrant, durant lesquelles nous peaufinons les derniers détails, précisons nos objectifs et fixons une feuille de route structurée. Ce jour clé est également rythmé par une rencontre enrichissante avec le directeur de l’école, à qui nous présentons notre initiative, recueillons ses avis précieux et obtenons son soutien. C’est une journée pleine d’émotion, d’énergie et de motivation, annonçant le début d’une aventure ambitieuse.</p>
+                        </div>
+                    </div>
+                </div>
+                    
+
+                <h3 class="category-title">Développement du Projet</h3>
+                <div class="work-videos-grid">
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY2.mp4 " type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 2</h3>
+                            <p>Lors de notre première journée à l’école, nous avons réparé un mur. En contribuant à l’amélioration des locaux, nous avons renforcé notre esprit d’équipe tout en prenant part à l’entretien de notre environnement scolaire. Ce geste concret reflète notre engagement à rendre notre lieu d’apprentissage plus accueillant pour tous, tout en développant un sens des responsabilités et de l’initiative, valeurs essentielles dans tout projet citoyen.</p>
+                        </div>
+                    </div>
+                
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY3.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 3</h3>
+                            <p>Lors du deuxième jour, nous avons peint l’ensemble du mur avec une première couche. Cette étape a marqué une avancée significative dans notre projet PSC, en donnant vie au travail de préparation réalisé les jours précédents. En appliquant cette première couche de peinture, nous avons non seulement amélioré l’aspect visuel de l’espace, mais également contribué à créer un environnement plus propre et agréable pour l’ensemble de la communauté scolaire.</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY4.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 4 </h3>
+                            <p>Lors du troisième jour, nous avons finalisé la réparation et appliqué la deuxième couche de peinture sur l’ensemble du mur de l’école. Cette journée a été particulièrement productive et marquante dans le cadre de notre projet PSC. En unissant nos efforts, nous avons pu mener à bien une tâche concrète qui améliore durablement notre cadre de vie scolaire.</p>
+                        </div>
+                    </div>
+                
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY5.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 5</h3>
+                            <p>Lors du quatrième jour, nous avons entamé un nouveau volet de notre projet PSC en commençant l’aménagement d’un théâtre en plein air au sein de l’école. Pour donner vie à cet espace culturel, nous avons réalisé un graffiti artistique sur le mur, apportant une touche créative et colorée à l’environnement. Cette initiative vise à encourager l’expression artistique et à créer un lieu d’échange et de partage pour l’ensemble des élèves. À travers ce travail, nous affirmons notre volonté de contribuer activement à la vie de notre établissement tout en valorisant l’art comme outil d’engagement et de cohésion.</p>
+                        </div>
+                    </div>
+                    
+                        
+                    
+                    
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY5.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 6</h3>
+                            <p>Lors du cinquième jour, nous avons consacré notre énergie à des travaux de nettoyage et de jardinage dans l’ensemble de l’espace de l’école. Cette action s’inscrit pleinement dans les objectifs de notre projet PSC, en contribuant à l’amélioration de notre cadre de vie quotidien. En nettoyant les espaces communs et en entretenant les zones vertes, nous avons non seulement redonné de la beauté à notre établissement, mais aussi sensibilisé à l’importance du respect de l’environnement.</p>
+                        </div>
+                    </div>
+               
+
+                
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY7.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 7 </h3>
+                            <p>Lors du sixième jour, nous avons poursuivi notre projet PSC en peignant l’ensemble de l’escalier principal de l’école. Cette intervention a permis de redonner un coup de neuf à un lieu de passage quotidien pour tous les élèves et le personnel. En embellissant cet espace central, nous avons contribué à rendre l’environnement scolaire plus accueillant et motivant</p>
+                        </div>
+                    </div>
+
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY8.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 8</h3>
+                            <p>Lors du septième jour, nous avons poursuivi l’embellissement de l’école en peignant tous les éléments extérieurs, tels que les barrières, les jardinières (أحواض), et autres structures. Cette étape a permis d’unifier et de rafraîchir l’aspect général de l’établissement, renforçant ainsi le sentiment de fierté et d’appartenanc</p>
+                        </div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY9.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 9</h3>
+                            <p>Le huitième jour, nous avons poursuivi nos efforts d’embellissement en concentrant notre travail sur le terrain de sport. Nous avons repeint les deux cages de but ainsi que les barrières les entourant. Cette action a permis non seulement de redonner un aspect neuf à ces structures, mais aussi de renforcer l’esthétique de l’espace sportif. Cette étape s’inscrit dans notre volonté de valoriser chaque coin de l’établissement, en particulier les lieux de rassemblement et d’activités physiques.</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY 10.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 10</h3>
+                            <p>Lors de cette journée, nous avons renforcé la sécurité de notre établissement en installant un pack caméra de surveillance. Ce dispositif permet de mieux protéger les espaces communs et de prévenir d’éventuels incidents. En plus de son aspect sécuritaire, ce système moderne contribue à instaurer un climat de confiance et de sérénité au sein de notre communauté scolaire.</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../video de travail equipe 2025/DAY12.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Day 11</h3>
+                            <p>Dans le cadre de nos activités, nous avons consacré une journée à la préparation minutieuse de notre stand. Montage de la structure, décoration, agencement des supports et mise en valeur de nos réalisations : chaque détail a été pensé pour offrir un espace accueillant, organisé et représentatif de notre travail. Ce stand reflète notre esprit d’équipe, notre créativité et notre engagement dans le projet.</p>
+                        </div>
+                    </div>
+
+                    
+                    
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../LA DIRECTRICE VIDEO/mot directrice.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>parolede la directrice</h3>
+                            <p>Je tiens à féliciter l’ensemble des élèves et encadrants pour leur investissement remarquable dans ce projet. À travers ces actions concrètes, vous avez su redonner vie à notre établissement tout en cultivant des valeurs essentielles : l’engagement, la coopération et le respect de l’environnement. Ce travail collectif est le reflet d’un esprit d’initiative exemplaire, et je suis fière de voir notre école devenir un lieu encore plus accueillant, vivant et inspirant.
+                    </div>
+
+                    
+                    
+
+                    
+                </div>
+            </div>
+        </section>
+
+        <section class="work-section">
+            <div class="work-container">
+                <h2>Notre Travail</h2>
+                <p>Découvrez les différents aspects de notre projet innovant</p>
+                <div class="work-grid">
+                    <div class="work-card">
+                        <div style="padding: 30px;">
+                            <i class="bi bi-lightbulb" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                            <h3 style="margin: 20px 0;">Innovation Technologique</h3>
+                            <p>Développement d'une visite virtuelle interactive utilisant les dernières technologies 3D</p>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <div style="padding: 30px;">
+                            <i class="bi bi-people" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                            <h3 style="margin: 20px 0;">Impact Social</h3>
+                            <p>Organisation d'événements et d'activités pour renforcer la cohésion de notre communauté</p>
+                        </div>
+                    </div>
+                    <div class="work-card">
+                        <div style="padding: 30px;">
+                            <i class="bi bi-graph-up" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                            <h3 style="margin: 20px 0;">Développement Continu</h3>
+                            <p>Amélioration constante de nos solutions pour répondre aux besoins évolutifs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="media-section">
+            <div class="media-container">
+                <h2> Notre  Nouveautés</h2>
+               
+                
+                <div class="media-item">
+                    
+                        
+                        <div class="media-text">
+                            <h3>Modélisation 3D de l'École </h3>
+                            <p>Notre équipe travaille sur la création d'une représentation virtuelle détaillée de notre établissement. Chaque espace est minutieusement modélisé pour offrir une expérience immersive authentique.</p>
+                        </div>
+                    
+                </div>
+                <div class="media-item">
+                    
+                        
+                    <div class="media-text">
+                        <h3>Site web </h3>
+                        <p>Découvrez notre établissement à travers une plateforme moderne conçue pour vous informer, vous inspirer et vous immerger dans notre univers.
+                            Ici, vous trouverez toutes les informations sur nos projets, nos espaces rénovés, nos activités et bien plus encore. Notre site reflète notre engagement à créer un environnement dynamique, innovant et accessible à tous.</p>
+                    </div>
+
+                </div>
+                
+            </div>
+
+             
+
+                
+
+                
+
+            </div>
+
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <h2>Nous Contacter</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h4>Par téléphone :</h4>
+                        <p><i class="bi bi-telephone"></i> 93961142</p>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Par email :</h4>
+                        <p><i class="bi bi-envelope"></i> ayoub.braham@polytechnicien.tn</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h4>Suivez-nous :</h4>
+                    <div class="social-buttons">
+                        <a href="https://facebook.com" class="social-button">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/e_novation_psc/?next=%2F" class="social-button">
+                            <i class="bi bi-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    
+    <footer>
+        <p>    © 2024 E-novation PSC - Tous droits réservés. Ce site a été créé avec soin par Ayoub Braham et Helmi Gaaya.</p>
+    </footer>
+</body>
+</html> 

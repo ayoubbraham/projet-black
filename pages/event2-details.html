@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de l'Événement 2 - E-novation PSC</title>
+    <link rel="stylesheet" href="../code css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #7FD4E4;
+            --secondary-color: #5BC0DE;
+        }
+
+        .event-details {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .video-section {
+            background: linear-gradient(135deg, rgba(127, 212, 228, 0.1) 0%, rgba(91, 192, 222, 0.1) 100%);
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            background: #000;
+            transition: transform 0.3s ease;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .video-description {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            backdrop-filter: blur(10px);
+            transform: translateY(-20px);
+            position: relative;
+            z-index: 2;
+        }
+
+        .video-description h3 {
+            color: var(--primary-color);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .video-description p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2em;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+            border-radius: 3px;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            margin: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .back-button:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            margin-top: 40px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-info h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: 1.1em;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .video-section {
+                padding: 40px 0;
+                margin: 30px 0;
+            }
+
+            .video-description {
+                padding: 20px;
+                margin-top: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="events.html" class="active">Événements</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="virtual-tour.html">Visite Virtuelle</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <a href="events.html" class="back-button">
+            <i class="bi bi-arrow-left"></i> Retour aux événements
+        </a>
+
+        <section class="event-details">
+            <h1>Réouverture du Théâtre</h1>
+
+            <div class="video-section">
+                <h2>Préparation de l'Événement</h2>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="../EVENT 2/EVENT 2 PREPARATION.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture de vidéos.
+                        </video>
+                    </div>
+                    <div class="video-description">
+                        <h3>Les Coulisses de la Préparation</h3>
+                        <p>Découvrez les étapes de préparation de notre deuxième événement majeur. Notre équipe met tout en œuvre pour créer une expérience unique et mémorable pour tous les participants.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h2>L'Événement</h2>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <video controls>
+                            <source src="../EVENT 2/EVENT 2.mp4" type="video/mp4">
+                            Votre navigateur ne supporte pas la lecture de vidéos.
+                        </video>
+                    </div>
+                    <div class="video-description">
+                        <h3>L'Événement en Direct</h3>
+                        <p>Revivez les moments forts de notre événement. Une journée riche en échanges, en découvertes et en innovations qui a marqué les esprits de tous les participants.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <h2>Nous Contacter</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h4>Par téléphone :</h4>
+                        <p><i class="bi bi-telephone"></i> 93961142</p>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Par email :</h4>
+                        <p><i class="bi bi-envelope"></i> ayoub.braham@polytechnicien.tn</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h4>Suivez-nous :</h4>
+                    <div class="social-buttons">
+                        <a href="https://facebook.com" class="social-button">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/e_novation_psc/?next=%2F" class="social-button">
+                            <i class="bi bi-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>    © 2024 E-novation PSC - Tous droits réservés. Ce site a été créé avec soin par Ayoub Braham et Helmi Gaaya.</p>
+    </footer>
+</body>
+</html> 

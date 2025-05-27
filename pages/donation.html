@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-novation PSC - Faire un Don</title>
+    <link rel="stylesheet" href="../code css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #7FD4E4;
+            --secondary-color: #5BC0DE;
+        }
+
+        .hero-section {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+            margin-right: 20px;
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-size: 4.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .donation-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .donation-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .bank-info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .bank-info-title {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .bank-details {
+            color: #000000;
+            font-size: 1.2em;
+            line-height: 2;
+            margin-bottom: 20px;
+        }
+
+        .bank-details p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bank-details i {
+            color: var(--primary-color);
+            font-size: 1.4em;
+        }
+
+        .thank-you-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .thank-you-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .thank-you-title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .thank-you-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.4em;
+            }
+
+            .bank-info-title {
+                font-size: 1.8em;
+            }
+
+            .bank-details {
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../logo/logo.png" alt="E-novation PSC Logo" class="header-logo">
+            </div>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="events.html">Événements</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="virtual-tour.html">Visite Virtuelle</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Faire un Don</h1>
+                <p class="hero-subtitle">Soutenez notre projet en faisant un don</p>
+            </div>
+        </section>
+
+        <section class="donation-section">
+            <div class="donation-container">
+                <div class="bank-info-card">
+                    <h2 class="bank-info-title">Nos Coordonnées Bancaires</h2>
+                    <div class="bank-details">
+                        <p><i class="bi bi-bank"></i> Banque : Banque Nationale de Tunisie</p>
+                        <p><i class="bi bi-person"></i> Titulaire : E-novation PSC</p>
+                        <p><i class="bi bi-credit-card"></i> IBAN : TN59 0000 0000 1234 5678 9012</p>
+                        <p><i class="bi bi-building"></i> BIC/SWIFT : BNTETNTT</p>
+                        <p><i class="bi bi-geo-alt"></i> Agence : Sousse, Tunisie</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="thank-you-section">
+            <div class="thank-you-container">
+                <h2 class="thank-you-title">Merci pour votre soutien</h2>
+                <p class="thank-you-text">Votre générosité nous aide à réaliser nos projets et à avoir un impact positif sur notre communauté. Chaque don compte et contribue à faire la différence.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>    © 2024 E-novation PSC - Tous droits réservés. Ce site a été créé avec soin par Ayoub Braham et Helmi Gaaya.</p>
+    </footer>
+</body>
+</html> 
