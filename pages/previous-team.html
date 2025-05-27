@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Équipe Précédente - E-novation PSC</title>
+    <link rel="stylesheet" href="../code css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+     <style>
+        :root {
+            --primary-color: #7FD4E4;
+            --secondary-color: #5BC0DE;
+        }
+
+        .hero-section {
+            height: 80vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero-title {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .supervisor-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .supervisor-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .supervisor-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .work-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .work-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .work-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            padding: 30px;
+            color: white;
+        }
+
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .work-card i {
+            color: white !important;
+        }
+
+        .work-card h3 {
+            color: white;
+        }
+
+        .media-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .media-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .media-item {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .media-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .media-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .media-video {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .media-text {
+            padding: 40px;
+            color: white;
+        }
+
+        .media-text h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .media-text p {
+            line-height: 1.8;
+            color: white;
+        }
+
+        .work-videos-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .work-videos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .work-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 40px;
+            justify-items: center;
+            align-items: stretch;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* Ratio 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .video-content h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .video-content p {
+            margin: 0;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .section-title h2 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: white;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .category-title {
+            color: white;
+            font-size: 2em;
+            margin: 40px 0 20px;
+            text-align: center;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-info h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: 1.1em;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Ajout des styles pour le logo */
+        .logo-container {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-logo {
+            height: 50px;
+            width: auto;
+            margin-right: 20px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="../logo/logo.png" alt="E-novation PSC Logo" class="header-logo">
+            </div>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="events.html">Événements</a></li>
+                <li><a href="sponsors.html">Sponsors</a></li>
+                <li><a href="virtual-tour.html">Visite Virtuelle</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Notre Équipe 2023-2024</h1>
+                <p class="hero-subtitle">Rénovation et Innovation</p>
+                <p>Découvrez le travail accompli par notre équipe précédente</p>
+            </div>
+        </section>
+
+        <section class="supervisor-section">
+            <div class="supervisor-container">
+                <img src="../VIDEO de travailequipe2024/imagenc.jpg" alt="Notre Encadreur" class="supervisor-image">
+                <h2>Notre Encadreur</h2>
+                <h3>Mahmoud Menyeoui</h3>
+                <p style="margin: 20px 0; line-height: 1.8;">Nous tenons à exprimer notre profonde gratitude envers notre encadreur pour son soutien constant, ses précieux conseils et son engagement dans la réussite de notre projet. Sa vision et son expertise nous guident vers l'excellence.</p>
+            </div>
+        </section>
+
+        <section class="work-videos-section">
+            <div class="work-videos-container">
+                <div class="section-title">
+                    <h2>Notre Équipe en Action</h2>
+                    <p>Découvrez le parcours de notre équipe à travers ces vidéos</p>
+                </div>
+
+                <div class="work-videos-grid">
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/day0.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 0</h3>
+                            <p>Le commencement de notre aventure</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/day-1.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 1</h3>
+                            <p>Premières étapes du projet</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/day-2.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 2</h3>
+                            <p>Développement des idées</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/day-3.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 3</h3>
+                            <p>Progression du projet</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY-4.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 4</h3>
+                            <p>Avancement des travaux</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY3.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Développement - Jour 3</h3>
+                            <p>Phase de développement</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY4.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Développement - Jour 4</h3>
+                            <p>Suite du développement</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY5.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 5</h3>
+                            <p>Progrès continus</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY6.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 6</h3>
+                            <p>Nouvelles avancées</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY7.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 7</h3>
+                            <p>Suite du développement</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY8.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 8</h3>
+                            <p>Progression continue</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY9.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 9</h3>
+                            <p>Avancement du projet</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY10.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 10</h3>
+                            <p>Développement majeur</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY12.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 12</h3>
+                            <p>Finalisation des fonctionnalités</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY13.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 13</h3>
+                            <p>Tests et optimisations</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY14.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 14</h3>
+                            <p>Derniers ajustements</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/DAY15.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Jour 15</h3>
+                            <p>Phase finale</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/before & after   part I.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Avant & Après - Partie 1</h3>
+                            <p>L'évolution de notre projet</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/OUR WORK.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Notre Travail</h3>
+                            <p>Aperçu de nos réalisations</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/OUR WORK2.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Notre Travail - Suite</h3>
+                            <p>La suite de nos réalisations</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/OURWORK3.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Notre Travail - Partie 3</h3>
+                            <p>Continuation de nos réalisations</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/OURWORK5.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Notre Travail - Partie 5</h3>
+                            <p>Suite des développements</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/final results.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Résultats Finaux</h3>
+                            <p>Présentation des résultats finaux</p>
+                        </div>
+                    </div>
+
+                    <div class="video-card">
+                        <div class="video-container">
+                            <video controls>
+                                <source src="../VIDEO de travailequipe2024/TEAM VIDEO.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la lecture de vidéos.
+                            </video>
+                        </div>
+                        <div class="video-content">
+                            <h3>Vidéo de l'Équipe</h3>
+                            <p>Présentation de notre équipe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="work-section">
+            <div class="work-container">
+                <h2>Nos Réalisations</h2>
+                <p>Les accomplissements majeurs de notre équipe</p>
+                <div class="work-grid">
+                    <div class="work-card">
+                        <i class="bi bi-award" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                        <h3 style="margin: 20px 0;">Prix d'Excellence</h3>
+                        <p>Reconnaissance de notre projet comme le meilleur PSC de l'année</p>
+                    </div>
+                    <div class="work-card">
+                        <i class="bi bi-graph-up-arrow" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                        <h3 style="margin: 20px 0;">Objectifs Dépassés</h3>
+                        <p>Tous nos objectifs ont été atteints et même dépassés</p>
+                    </div>
+                    <div class="work-card">
+                        <i class="bi bi-people-fill" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                        <h3 style="margin: 20px 0;">Impact Communautaire</h3>
+                        <p>Plus de 500 personnes satisfaits de notre solution</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="work-section">
+            <div class="work-container">
+                <h2>Notre Impact</h2>
+                <p>Les domaines clés où nous avons fait la différence</p>
+                <div class="work-grid">
+                    <div class="work-card">
+                        <i class="bi bi-trophy" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                        <h3 style="margin: 20px 0;">Excellence Académique</h3>
+                        <p>Reconnaissance de notre travail par les plus hautes instances</p>
+                    </div>
+                    <div class="work-card">
+                        <i class="bi bi-people" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                        <h3 style="margin: 20px 0;">Engagement Communautaire</h3>
+                        <p>Création d'événements fédérateurs et enrichissants</p>
+                    </div>
+                    <div class="work-card">
+                        <i class="bi bi-stars" style="font-size: 2.5em; color: var(--primary-color);"></i>
+                        <h3 style="margin: 20px 0;">Innovation Continue</h3>
+                        <p>Développement de solutions créatives et durables</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <h2>Nous Contacter</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h4>Par téléphone :</h4>
+                        <p><i class="bi bi-telephone"></i> 93961142</p>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Par email :</h4>
+                        <p><i class="bi bi-envelope"></i> ayoub.braham@polytechnicien.tn</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h4>Suivez-nous :</h4>
+                    <div class="social-buttons">
+                        <a href="https://facebook.com" class="social-button">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/e_novation_psc/?next=%2F" class="social-button">
+                            <i class="bi bi-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+   
+    <footer>
+        <p>    © 2024 E-novation PSC - Tous droits réservés. Ce site a été créé avec soin par Ayoub Braham et Helmi Gaaya.</p>
+    </footer>
+</body>
+</html> 

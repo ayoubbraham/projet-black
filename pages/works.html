@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travaux - Visite Virtuelle</title>
+    <link rel="stylesheet" href="../code css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .contact-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            margin-top: 40px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-info h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links h4 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-size: 1.1em;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="events.html">Événements</a></li>
+                <li><a href="works.html">Travaux</a></li>
+                <li><a href="virtual-tour.html">Visite Virtuelle</a></li>
+                <li><a href="login.html">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Nos Travaux</h1>
+            <p>Découvrez les différentes étapes de notre projet</p>
+        </section>
+
+        <section class="works-grid">
+            <div class="work-card">
+                <h3>Scan 3D</h3>
+                <p class="description">Numérisation des espaces avec Luma AI</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 80%;">80%</div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <h3>Modélisation</h3>
+                <p class="description">Traitement et optimisation des modèles 3D</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 65%;">65%</div>
+                </div>
+            </div>
+
+            <div class="work-card">
+                <h3>Développement Web</h3>
+                <p class="description">Intégration des modèles avec Three.js</p>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 90%;">90%</div>
+                </div>
+            </div>
+        </section>
+
+        <div class="logo-container">
+            <img src="../images/logo2023.png" alt="Logo 2023" class="logo">
+            <img src="../images/logo2024.png" alt="Logo 2024" class="logo">
+        </div>
+
+        <section class="contact-section">
+            <div class="contact-container">
+                <h2>Nous Contacter</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h4>Par téléphone :</h4>
+                        <p><i class="bi bi-telephone"></i> 93961142</p>
+                    </div>
+                    <div class="contact-info">
+                        <h4>Par email :</h4>
+                        <p><i class="bi bi-envelope"></i> ayoub.braham@polytechnicien.tn</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h4>Suivez-nous :</h4>
+                    <div class="social-buttons">
+                        <a href="https://facebook.com" class="social-button">
+                            <i class="bi bi-facebook"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/e_novation_psc/?next=%2F"  class="social-button">
+                            <i class="bi bi-instagram"></i> Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <img src="images/mascot2.png" alt="Mascotte" class="mascot">
+    <footer>
+        <p>    © 2024 E-novation PSC - Tous droits réservés. Ce site a été créé avec soin par Ayoub Braham et Helmi Gaaya.</p>
+    </footer>
+</body>
+</html> 
